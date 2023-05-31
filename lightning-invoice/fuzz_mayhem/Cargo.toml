@@ -8,13 +8,13 @@ edition = "2018"
 [package.metadata]
 cargo-fuzz = true
 
-[features]
-afl_fuzz = ["afl"]
-honggfuzz_fuzz = ["honggfuzz"]
+#[features]
+#afl_fuzz = ["afl"]
+#honggfuzz_fuzz = ["honggfuzz"]
 
 [dependencies]
-honggfuzz = { version = "0.5", optional = true, default-features = false }
-afl = { version = "0.4", optional = true }
+honggfuzz = "0.5.55"
+#afl = { version = "0.4", optional = true }
 lightning-invoice = { path = ".." }
 lightning = { path = "../../lightning", features = ["regex"] }
 bech32 = "0.9.0"

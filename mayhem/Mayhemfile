@@ -1,0 +1,5 @@
+project: rust-lightning
+target: serde_data_part
+
+cmds:
+  - cmd: /serde_data_part
