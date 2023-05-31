@@ -10,10 +10,10 @@ RUN cargo install -f honggfuzz
 ADD . /rust-lightning
 WORKDIR /rust-lightning
 
-RUN cd ./lightning-invoice/fuzz && cargo +nightly hfuzz build
+RUN cd ./lightning-invoice/fuzz_mayhem && cargo +nightly hfuzz build
 
 
 # Move Fuzzers to a clean image
 FROM ubuntu:20.04
 
-COPY --from=builder rust-lightning/lightning-invoice/fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/serde_data_part /
+COPY --from=builder rust-lightning/lightning-invoice/fuzz_mayhem/hfuzz_target/x86_64-unknown-linux-gnu/release/serde_data_part /
