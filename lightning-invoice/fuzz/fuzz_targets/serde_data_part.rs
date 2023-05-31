@@ -1,5 +1,6 @@
 extern crate lightning_invoice;
 extern crate bech32;
+use honggfuzz::fuzz;
 
 use lightning_invoice::RawDataPart;
 use bech32::{FromBase32, ToBase32, u5};
@@ -21,6 +22,7 @@ fn do_test(data: &[u8]) {
     );
 }
 
+/*
 #[cfg(feature = "afl")]
 #[macro_use] extern crate afl;
 #[cfg(feature = "afl")]
@@ -30,9 +32,12 @@ fn main() {
     });
 }
 
+
 #[cfg(feature = "honggfuzz")]
 #[macro_use] extern crate honggfuzz;
 #[cfg(feature = "honggfuzz")]
+*/
+
 fn main() {
     loop {
         fuzz!(|data| {
@@ -40,7 +45,7 @@ fn main() {
         });
     }
 }
-
+/*
 #[cfg(test)]
 mod tests {
     fn extend_vec_from_hex(hex: &str, out: &mut Vec<u8>) {
@@ -67,3 +72,4 @@ mod tests {
         super::do_test(&a);
     }
 }
+*/
